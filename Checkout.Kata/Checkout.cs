@@ -30,7 +30,14 @@ namespace Checkout.Kata
 
 		public decimal Total()
 		{
-			return _items.Any() ? _items.Sum(item => item.Price) : 0;
+			if (!_items.Any())
+				return 0;
+
+			var total = _items.Sum(item => item.Price);
+
+			var discountAmount = _discount.CalculateDiscountAmount(_items);
+
+			return total - discountAmount;
 		}
 	}
 }
