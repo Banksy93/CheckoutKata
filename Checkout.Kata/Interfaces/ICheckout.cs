@@ -9,5 +9,11 @@ namespace Checkout.Kata.Interfaces
 		/// </summary>
 		/// <param name="item"></param>
 		void Scan(Item item);
+
+		/// <summary>
+		/// Get the total price of scanned items
+		/// </summary>
+		/// <returns></returns>
+		decimal Total();
 	}
 }

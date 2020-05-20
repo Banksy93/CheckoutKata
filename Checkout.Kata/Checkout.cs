@@ -19,5 +19,10 @@ namespace Checkout.Kata
 
 			_items.Add(item);
 		}
+
+		public decimal Total()
+		{
+			throw new NotImplementedException();
+		}
 	}
 }
