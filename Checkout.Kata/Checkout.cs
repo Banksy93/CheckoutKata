@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Checkout.Kata.Interfaces;
 using Checkout.Kata.Models;
 
@@ -22,7 +23,7 @@ namespace Checkout.Kata
 
 		public decimal Total()
 		{
-			throw new NotImplementedException();
+			return _items.Any() ? _items.Sum(item => item.Price) : 0;
 		}
 	}
 }
