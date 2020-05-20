@@ -10,6 +10,6 @@ namespace Checkout.Kata.Interfaces
 		/// </summary>
 		/// <param name="items"></param>
 		/// <returns></returns>
-		decimal CalculateDiscountAmount(IList<Item> items);
+		decimal CalculateDiscountAmount(IEnumerable<Item> items);
 	}
 }
