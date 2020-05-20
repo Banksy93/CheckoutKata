@@ -8,7 +8,14 @@ namespace Checkout.Kata
 {
 	public class Checkout : ICheckout
 	{
+		private readonly IDiscount _discount;
+
 		private readonly IList<Item> _items = new List<Item>();
+
+		public Checkout(IDiscount discount)
+		{
+			_discount = discount;
+		}
 
 		public void Scan(Item item)
 		{

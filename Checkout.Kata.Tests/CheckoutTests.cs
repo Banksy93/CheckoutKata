@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Checkout.Kata.Interfaces;
 using Checkout.Kata.Models;
+using Moq;
 using NUnit.Framework;
 
 namespace Checkout.Kata.Tests
@@ -11,10 +12,12 @@ namespace Checkout.Kata.Tests
 	{
 		private ICheckout _checkout;
 
+		private Mock<IDiscount> _discountMock;
+
 		[SetUp]
 		public void Setup()
 		{
-			_checkout = new Checkout();
+			_checkout = new Checkout(_discountMock.Object);
 		}
 
 		[Test]
