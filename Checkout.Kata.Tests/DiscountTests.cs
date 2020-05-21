@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Checkout.Kata.Interfaces;
 using Checkout.Kata.Models;
 using NUnit.Framework;
@@ -110,6 +111,23 @@ namespace Checkout.Kata.Tests
 
 			// Assert
 			Assert.AreEqual(0.20m, discount);
+		}
+
+		[Test]
+		public void Caculate_Discount_Amount_Throws_Argument_Null_Exception_()
+		{
+			// Act & Assert
+			Assert.Throws<ArgumentNullException>(() => _discount.CalculateDiscountAmount(null));
+		}
+
+		[Test]
+		public void Calculate_Discount_Amount_Returns_Zero_No_Items_Passed()
+		{
+			// Act
+			var discount = _discount.CalculateDiscountAmount(new List<Item>());
+
+			// Assert
+			Assert.AreEqual(0, discount);
 		}
 	}
 }
