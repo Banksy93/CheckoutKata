@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Checkout.Kata.Interfaces;
 using Checkout.Kata.Models;
@@ -9,7 +10,13 @@ namespace Checkout.Kata
 	{
 		public decimal CalculateDiscountAmount(IEnumerable<Item> items)
 		{
+			if (items == null)
+				throw new ArgumentNullException();
+
 			decimal totalDiscount = 0;
+
+			if (!items.Any())
+				return totalDiscount;
 
 			var offers = GetSpecialOffers();
 
